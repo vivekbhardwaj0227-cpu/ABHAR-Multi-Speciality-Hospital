@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ABHAR Multi-Specialty Hospital | Touching Lives</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f9ff;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f4fa8, #1e88e5);
+      color: white;
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo h1 {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .logo span {
+      display: block;
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: white;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #dbeafe;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(15, 79, 168, 0.75), rgba(15, 79, 168, 0.75)), url('images/hospital-building.jpg') center/cover no-repeat;
+      color: white;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .hero h2 {
+      font-size: 52px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+      opacity: 0.95;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: white;
+      color: #0f4fa8;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      background: #e0efff;
+    }
+
+    .btn-outline {
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: #0f4fa8;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      color: #0f4fa8;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #475569;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .about-content h3 {
+      color: #0f4fa8;
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .highlight-boxes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .highlight {
+      background: white;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .highlight h4 {
+      color: #0f4fa8;
+      margin-bottom: 10px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      transition: 0.3s;
+      border-top: 5px solid #1e88e5;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .service-card h3 {
+      color: #0f4fa8;
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .carousel-section {
+      background: #eaf4ff;
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: calc(300px * 12);
+      animation: scroll 30s linear infinite;
+      gap: 20px;
+    }
+
+    .carousel-track:hover {
+      animation-play-state: paused;
+    }
+
+    .carousel-item {
+      width: 300px;
+      height: 220px;
+      flex-shrink: 0;
+      border-radius: 18px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-320px * 6));
+      }
+    }
+
+    .doctor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .doctor-card {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .doctor-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      background: #dbeafe;
+    }
+
+    .doctor-card .content {
+      padding: 25px;
+    }
+
+    .doctor-card h3 {
+      color: #0f4fa8;
+      margin-bottom: 5px;
+    }
+
+    .emergency {
+      background: linear-gradient(135deg, #0f4fa8, #1e88e5);
+      color: white;
+      text-align: center;
+      border-radius: 25px;
+      padding: 50px 25px;
+    }
+
+    .emergency h2 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      align-items: start;
+    }
+
+    .contact-card {
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .contact-card h3 {
+      color: #0f4fa8;
+      margin-bottom: 15px;
+    }
+
+    .contact-card p {
+      margin-bottom: 12px;
+    }
+
+    iframe {
+      width: 100%;
+      border: none;
+      border-radius: 18px;
+      min-height: 350px;
+    }
+
+    footer {
+      background: #0f172a;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .floating-buttons {
+      position: fixed;
+      bottom: 18px;
+      right: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 9999;
+    }
+
+    .float-btn {
+      padding: 14px 18px;
+      border-radius: 50px;
+      color: white;
+      font-weight: 600;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      transition: 0.3s;
+      text-align: center;
+    }
+
+    .float-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .call-btn {
+      background: #0f4fa8;
+    }
+
+    .whatsapp-btn {
+      background: #25D366;
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      .section-title h2 {
+        font-size: 30px;
+      }
+
+      nav {
+        gap: 20px;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .floating-buttons {
+        left: 15px;
+        right: 15px;
+      }
+
+      .float-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <h1>ABHAR Multi-Specialty Hospital</h1>
+          <span>TOUCHING LIVES</span>
+        </div>
+
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#doctors">Doctors</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Compassionate Multi-Specialty Healthcare for Every Family</h2>
+      <p>
+        ABHAR Multi-Specialty Hospital provides trusted medical care with advanced treatment facilities,
+        experienced doctors, 24/7 emergency support, and patient-first healthcare services.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="tel:+919053017444" class="btn btn-primary">Book Appointment</a>
+        <a href="#contact" class="btn btn-outline">Get Directions</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Us</h2>
+        <p>
+          ABHAR Multi-Specialty Hospital is committed to providing quality healthcare services with compassion,
+          integrity, and advanced medical expertise.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-image">
+          <img src="images/about-hospital.jpg" alt="ABHAR Hospital Building Placeholder">
+        </div>
+
+        <div class="about-content">
+          <h3>Healthcare Driven by Care & Trust</h3>
+          <p>
+            Run by Dr. Anil Mor and his team, ABHAR Multi-Specialty Hospital offers specialized healthcare
+            services across multiple departments with a patient-centric approach. Our hospital is dedicated to
+            delivering safe, ethical, and affordable medical care.
+          </p>
+
+          <p>
+            Located at Rajiv Chowk, Thana Road, Meham, Haryana, our facility is equipped to handle emergency
+            care, consultations, diagnostics, pharmacy services, and specialized treatments.
+          </p>
+
+          <div class="highlight-boxes">
+            <div class="highlight">
+              <h4>24/7 Emergency</h4>
+              <p>Emergency medical support available round the clock.</p>
+            </div>
+
+            <div class="highlight">
+              <h4>24x7 Pharmacy</h4>
+              <p>Medicines available anytime through ABHAR Pharmacy.</p>
+            </div>
+
+            <div class="highlight">
+              <h4>Expert Doctors</h4>
+              <p>Experienced healthcare professionals across specialties.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Medical Services & Departments</h2>
+        <p>
+          Specialized healthcare services provided by experienced medical professionals.
+        </p>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+          <h3>General Medicine</h3>
+          <p>Diagnosis and treatment for general health issues, chest and respiratory illnesses.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>ENT Care</h3>
+          <p>Comprehensive Ear, Nose & Throat care including head and neck cancer surgery.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>General & Laparoscopic Surgery</h3>
+          <p>Advanced surgical procedures including minimally invasive laparoscopic surgeries.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>Gynecology & Obstetrics</h3>
+          <p>Women's healthcare, pregnancy care, and obstetric treatments.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>Orthopedic Care</h3>
+          <p>Joint, bone, muscle, and orthopedic treatment services.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>Ultrasound Facility</h3>
+          <p>Diagnostic ultrasound services for accurate medical evaluation.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>Urology</h3>
+          <p>Specialized care for urinary tract and related medical conditions.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>Dermatology</h3>
+          <p>Diagnosis and treatment for skin diseases and dermatological conditions.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="carousel-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Hospital Gallery</h2>
+        <p>Add your hospital and facility images inside the images folder.</p>
+      </div>
+
+      <div class="carousel-track">
+
+        <div class="carousel-item">
+          <img src="images/gallery-1.jpg" alt="Gallery Image 1">
+        </div>
+
+        <div class="carousel-item">
+          <img src="images/gallery-2.jpg" alt="Gallery Image 2">
+        </div>
+
+        <div class="carousel-item">
+          <img src="images/gallery-3.jpg" alt="Gallery Image 3">
+        </div>
+
+        <div class="carousel-item">
+          <img src="images/gallery-4.jpg" alt="Gallery Image 4">
+        </div>
+
+        <div class="carousel-item">
+          <img src="images/gallery-5.jpg" alt="Gallery Image 5">
+        </div>
+
+        <div class="carousel-item">
+          <img src="images/gallery-6.jpg" alt="Gallery Image 6">
+        </div>
+
+        <div class="carousel-item">
+          <img src="images/gallery-1.jpg" alt="Gallery Image 1 Duplicate">
+        </div>
+
+        <div class="carousel-item">
+          <img src="images/gallery-2.jpg" alt="Gallery Image 2 Duplicate">
+        </div>
+
+        <div class="carousel-item">
+          <img src="images/gallery-3.jpg" alt="Gallery Image 3 Duplicate">
+        </div>
+
+        <div class="carousel-item">
+          <img src="images/gallery-4.jpg" alt="Gallery Image 4 Duplicate">
+        </div>
+
+        <div class="carousel-item">
+          <img src="images/gallery-5.jpg" alt="Gallery Image 5 Duplicate">
+        </div>
+
+        <div class="carousel-item">
+          <img src="images/gallery-6.jpg" alt="Gallery Image 6 Duplicate">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="doctors">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Medical Team</h2>
+        <p>Dedicated healthcare professionals committed to patient well-being.</p>
+      </div>
+
+      <div class="doctor-grid">
+
+        <div class="doctor-card">
+          <img src="images/dr-anil-mor.jpg" alt="Dr. Anil Mor">
+          <div class="content">
+            <h3>Dr. Anil Mor</h3>
+            <p>Founder & Medical Specialist</p>
+          </div>
+        </div>
+
+        <div class="doctor-card">
+          <img src="images/doctor-placeholder-1.jpg" alt="Doctor Placeholder">
+          <div class="content">
+            <h3>Specialist Doctor</h3>
+            <p>Add doctor details here.</p>
+          </div>
+        </div>
+
+        <div class="doctor-card">
+          <img src="images/doctor-placeholder-2.jpg" alt="Doctor Placeholder">
+          <div class="content">
+            <h3>Specialist Doctor</h3>
+            <p>Add doctor details here.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="emergency">
+        <h2>24/7 Emergency Services</h2>
+        <p>
+          Immediate medical attention and emergency support available at all times.
+        </p>
+        <br>
+        <a href="tel:+919053017444" class="btn btn-primary">Call Emergency Support</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact & Location</h2>
+        <p>Reach us for appointments, consultations, and emergency care.</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-card">
+          <h3>Hospital Information</h3>
+
+          <p><strong>Address:</strong><br>
+          Rajiv Chowk, Thana Road,<br>
+          Meham – 124112, Haryana, India</p>
+
+          <p><strong>Phone Numbers:</strong><br>
+          +91 90530-17444<br>
+          +91 90530-16444<br>
+          +91 90530-15444</p>
+
+          <p><strong>Pharmacy:</strong><br>
+          ABHAR PHARMACY – Open 24x7</p>
+
+          <p><strong>Email:</strong><br>
+          info@abharhospital.com</p>
+        </div>
+
+        <div>
+          <iframe
+            src="https://maps.google.com/maps?q=Rajiv%20Chowk%20Thana%20Road%20Meham%20Haryana&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            allowfullscreen=""
+            loading="lazy">
+          </iframe>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 ABHAR Multi-Specialty Hospital | TOUCHING LIVES</p>
+    <p>Designed for compassionate healthcare excellence.</p>
+  </footer>
+
+  <div class="floating-buttons">
+    <a href="tel:+919053017444" class="float-btn call-btn">
+      📞 Call to Book Appointment
+    </a>
+
+    <a href="https://wa.me/919053017444" target="_blank" class="float-btn whatsapp-btn">
+      💬 WhatsApp Chat
+    </a>
+  </div>
+
+</body>
+</html>
